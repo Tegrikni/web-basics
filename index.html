@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="Ja">
+<head>
+    <link rel="stylesheet" href="html_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLの基本知識</title>
+    <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+    #quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .result {
+      font-size: 3rem;
+      text-align: center;
+      margin: 1rem 0 0.5rem;
+      display: none;
+    }
+    .result-text {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .explanation {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    #next-button {
+      display: none;
+      margin-top: 1rem;
+    }
+    #final-result {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .Quizebutton {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #007acc;
+      color: white;
+    }
+    .box {
+      background-color: #90ee90;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #555;
+    }
+    .container {
+      margin-top: 10px;
+      border: 2px dashed #ccc;
+      padding: 10px;
+    }
+
+    /* 各 display タイプ */
+    .block {
+      display: block;
+    }
+
+    .inline {
+      display: inline;
+    }
+
+    .inline-block {
+      display: inline-block;
+      width: 150px;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .flex {
+      display: flex;
+      gap: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+    <h1>HTML・CSSの基本知識と使い方</h1>
+    <p>このページではWeb開発に必須なマークアップ言語であるHTMLとCSSについての基本的な知識をまとめました。
+        <br>こまでにHTMLやCSSを使ったことのない人向けなので、実際に手を動かしながらぜひ勉強に役立ててください！
+        <br>ページの最後にはクイズも解いてみましょう！
+    </p>
+    
+    <h2>よく使うHTMLタグとその役割</h2>
+    <h3>🔷基本の構造</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;!DOCTYPE html&gt;</td>
+            <td>HTMLのバージョンを指定（必ず最初に書く）</td>
+            <td>HTML5を使うとき</td>
+        </tr>
+        <tr>
+            <td>&lt;html lang="ja"&gt;</td>
+            <td>HTMLの全体を囲む</td>
+            <td>言語設定もできる（ja なら日本語）</td>
+        </tr>
+        <tr>
+            <td>&lt;head&gt;</td>
+            <td>ページの情報（見えない部分）を設定</td>
+            <td>タイトルや文字コードを指定</td>
+        </tr>
+        <tr>
+            <td>&lt;meta charset="UTF-8"&gt;</td>
+            <td>文字コードを指定（日本語が文字化けしないように）</td>
+            <td>ほぼ必ず使う</td>
+        </tr>
+        <tr>
+            <td>&lt;title&gt;</td>
+            <td>ページのタイトル</td>
+            <td>ブラウザのタブに表示される<img src="headexample.png" alt="titleの例"></td>
+        </tr>
+        <tr>
+            <td>&lt;body&gt;</td>
+            <td>実際に画面に表示する部分</td>
+            <td>ページの中身を作る</td>
+        </tr>
+        
+    </table>
+
+    
+    <h3>HTML5とは？</h3>
+    <p>
+        <strong>HTML5</strong>は、HTMLの最新の仕様で、従来のHTML4に比べて<br>
+        <strong>より意味を持ったタグ（セマンティック・タグ）</strong>が追加された。これにより、<br>
+        コードの構造が明確になり、検索エンジンや支援技術（スクリーンリーダー）にも優しくなっている。
+    </p>
+
+    <h4>HTML5で追加された主なタグ</h4>
+    <ul>
+        <li><code>&lt;article&gt;</code>：独立した記事や投稿などを表す</li>
+        <li><code>&lt;section&gt;</code>：文書内のセクション（区切り）を表す</li>
+        <li><code>&lt;header&gt;</code>：セクションやページのヘッダー部分</li>
+        <li><code>&lt;footer&gt;</code>：セクションやページのフッター部分</li>
+        <li><code>&lt;nav&gt;</code>：ナビゲーションリンクをまとめる</li>
+        <li><code>&lt;aside&gt;</code>：補足情報や関連情報などを表す</li>
+    </ul>
+
+    <div class = "card">
+    <h4>例：<code>&lt;article&gt;</code> と <code>&lt;section&gt;</code></h4>
+    <button class = "copy-button">コピー</button>
+    <pre>
+        <code>
+            &lt;section&gt;
+                &lt;h2&gt;ニュース&lt;/h2&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;新製品の発表&lt;/h3&gt;
+                    &lt;p&gt;本日、新しい製品が発表されました。&lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/section&gt;
+    </code></pre>
+    </div>
+    
+    <p>
+        上記のように、<code>&lt;section&gt;</code> は文書の区切りを、<code>&lt;article&gt;</code> は記事のような独立した内容を表す。
+    </p>
+    <br>
+
+    <h3>🔷見出し・文章</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;h1&gt;~&lt;h6&gt;</td>
+            <td>見出し（h1が一番大きい）</td>
+            <td>ページタイトルやセクションの見出し</td>
+        </tr>
+        <tr>
+            <td>&lt;p&gt;</td>
+            <td>段落（文章）</td>
+            <td>普通の文章を書く</td>
+        </tr>
+        <tr>
+            <td>&lt;br&gt;</td>
+            <td>改行</td>
+            <td>文章を途中で改行したいとき</td>
+        </tr>
+        <tr>
+            <td>&lt;hr&gt;</td>
+            <td>横線（区切り線）</td>
+            <td>セクションの区切り</td>
+        </tr>
+    </table>
+    <br>
+    <div class="card">
+        <h4>HTMLのコード例</h4>
+        <button class="copy-button">コピー</button>
+        <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="ja"&gt;
+                &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;title&gt;見出しと段落の例&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                &lt;h1&gt;これはh1です&lt;/h1&gt;
+                &lt;h2&gt;これはh2です&lt;/h2&gt;
+                &lt;h3&gt;これはh3です&lt;/h3&gt;
+                &lt;p&gt;これはpタグです。段落を表します。&lt;/p&gt;
+                &lt;p&gt;これは&lt;br&gt;途中で&lt;br&gt;改行した文章です。&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;p&gt;ここから別のセクションのように見せたいときはhrタグで区切ります。&lt;/p&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+    <p><a href="sample_headings.html" target="_blank">見出しと段落の実例を見る</a></p>
+    <br>
+
+    <h3>🔷リスト(箇条書き)</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;ul&gt;</td>
+            <td>箇条書きリスト（順番なし）</td>
+            <td>メニューやリスト</td>
+        </tr>
+        <tr>
+            <td>&lt;ol&gt;</td>
+            <td>番号付きリスト（順番あり）</td>
+            <td>手順やランキング</td>
+        </tr>
+        <tr>
+            <td>&lt;li&gt;</td>
+            <td>リストの項目</td>
+            <td>ulやol の中で使う</td>
+        </tr>
+    </table>
+    <br>
+    <div class="card">
+        <h4>HTMLのコード例</h4>
+        <button class="copy-button">コピー</button>
+        <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="ja"&gt;
+                &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;title&gt;リストの例&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                &lt;h2&gt;順番なしリスト（ul）&lt;/h2&gt;
+                &lt;ul class = "fruits"&gt;
+                &lt;li&gt;りんご&lt;/li&gt;
+                &lt;li&gt;みかん&lt;/li&gt;
+                &lt;li&gt;バナナ&lt;/li&gt;
+                &lt;/ul&gt;
+
+                &lt;h2&gt;番号付きリスト（ol）&lt;/h2&gt;
+                &lt;ol class = "schedule"&gt;
+                &lt;li&gt;起床&lt;/li&gt;
+                &lt;li&gt;朝ごはん&lt;/li&gt;
+                &lt;li&gt;学校へ行く&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+    <p><a href="sample_lists.html" target="_blank">リストの実例を見る</a></p>
+    <br>
+
+    <h3>🔷リンク・画像</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;a href="URL"&gt;</td>
+            <td>リンクを作る</td>
+            <td>他のページやサイトへ飛ばす</td>
+        </tr>
+        <tr>
+            <td>&lt;img src="画像のURL" alt="説明"&gt;</td>
+            <td>画像を表示する</td>
+            <td>写真やアイコンを使う</td>
+        </tr>
+    </table>
+    <li>
+        アクセシビリティ向上、画像が表示されない場合の補足、SEO(検索エンジン最適化)などの観点から&lt;img&gt;タグにはalt属性を付ける
+    </li>
+    <br>
+    <img src="drone.png" alt="空を飛ぶドローン">
+    <br>
+    <p>上の画像をスクリーンリーダーで読み込むと「空を飛ぶドローン」という音声として再生される。</p>
+    <div class = "card">
+        <h4>&lt;img&gt;タグとalt属性のコード例</h4>
+        <button class="copy-button">コピー</button>
+        <pre>
+            <code>
+                &lt;img src="drone.jpg" alt="空を飛ぶドローン"&gt;
+            </code>
+        </pre>
+    </div>
+    <br>
+
+    <h3>🔷表(データを整理)</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;table&gt;</td>
+            <td>表（テーブル）を作る</td>
+            <td>データを表で整理</td>
+        </tr>
+        <tr>
+            <td>&lt;tr&gt;</td>
+            <td>表の1行を作る</td>
+            <td>″</td>
+        </tr>
+        <tr>
+            <td>&lt;td&gt;</td>
+            <td>表のセル（データ）</td>
+            <td>″</td>
+        </tr>
+        <tr>
+            <td>&lt;th&gt;</td>
+            <td>見出しセル（太字）</td>
+            <td>″</td>
+        </tr>
+    </table>
+    <br>
+
+    <h3>🔷その他のタグ</h3>
+    <table>
+        <tr>
+            <th>タグ</th>
+            <th>役割</th>
+            <th>使う場面</th>
+        </tr>
+        <tr>
+            <td>&lt;div&gt;</td>
+            <td>ブロック（区切り）</td>
+            <td>ページをグループ分け</td>
+        </tr>
+        <tr>
+            <td>&lt;span&gt;</td>
+            <td>文字を強調（インライン）</td>
+            <td>文字の色を変えたいとき</td>
+        </tr>
+        <tr>
+            <td>&lt;strong&gt;</td>
+            <td>太字・重要な意味を持たせる</td>
+            <td>重要な部分を強調(強意)</td>
+        </tr>
+        <tr>
+            <td>&lt;b&gt;</td>
+            <td>太字（&lt;strong&gt;と違い見た目だけ※1）</td>
+            <td>文字の見た目を太くしたいとき</td>
+        </tr>
+        <tr>
+            <td>&lt;em&gt;</td>
+            <td>斜体（強調）</td>
+            <td>ちょっとした強調</td>
+        </tr>
+    </table>
+    ※1　&lt;strong&gt;と&lt;b&gt;は画面上では同じ見た目だが、&lt;strong&gt;はスクリーンリーダーなどの支援技術に対して音声に抑揚や協調を付けるときがある。
+    <br>
+    <br>
+
+    <h2>Emet機能</h2>
+    <p>Emmet（エメット） は、HTMLやCSSを素早く書くための補完機能のことである。
+        <br>ここでは、Emmetの使い方を紹介する。
+    </p>
+    <ul>
+        <li><h3>HTMLの基本構造を一瞬で作る</h3></li>
+        <p>! と入力して Enter を押すと、HTMLのひな形が自動生成される</p>
+        <li><h3>タグを素早く書く</h3></li>
+        <p>タグ名 を入力して Tab を押すと、自動でタグが完成する</p>
+        <table>
+            <tr>
+                <th>入力(Tabを押す前)</th>
+                <th>出力(Tabを押した後)</th>
+            </tr>
+            <tr>
+                <td>h1</td>
+                <td>&lt;h1&gt;&lt;/h1&gt;</td>
+            </tr>
+            <tr>
+                <td>p</td>
+                <td>&lt;p&gt;&lt;/p&gt;</td>
+            </tr>
+            <tr>
+                <td>ul&gt;li*3</td>
+                <td>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</td>
+            </tr>
+        </table>
+
+        <li><h3>複数のタグをまとめて書く</h3></li>
+        <p>> を使うと ネスト（入れ子） したタグを一瞬で作れる</p>
+        <table>
+            <tr>
+                <th>入力(Tabを押す前)</th>
+                <th>出力(Tabを押した後)</th>
+            </tr>
+            
+            <tr>
+                <td>div&gt;h1+p</td>
+                <td>&lt;div&gt;&lt;h1&gt;&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</td>
+            </tr>
+        </table>
+    </ul>
+    <br>
+    
+    <h2>&lt;form&gt;タグとは？</h2>
+    <p>
+        <code>&lt;form&gt;</code> タグは、ユーザーからの入力（名前・メール・アンケートなど）を受け取ってサーバーに送信するためのHTML要素。
+        フォーム内には入力欄（<code>&lt;input&gt;</code>や<code>&lt;textarea&gt;</code>）、選択肢（<code>&lt;select&gt;</code>）、
+        送信ボタン（<code>&lt;button&gt;</code>）などを入れる。
+    </p>
+
+    <h3>基本的なフォームの例</h3>
+    <form action="#" method="post" style="border: 1px solid #ccc; padding: 16px; max-width: 400px;">
+        <label for="name">名前：</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+
+        <label for="email">メールアドレス：</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="message">メッセージ：</label><br>
+        <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+
+        <button type="submit">送信</button>
+    </form>
+
+  <h3>ポイント</h3>
+  <ul>
+    <li><code>&lt;form&gt;</code> の <code>action</code> 属性は送信先のURLを指定。</li>
+    <li><code>method</code> は送信方法。通常は <code>get</code> か <code>post</code>。</li>
+    <li><code>label</code> を使うとアクセシビリティが向上する。</li>
+    <li>ボタンは <code>&lt;button type="submit"&gt;</code> または <code>&lt;input type="submit"&gt;</code>。</li>
+  </ul>
+
+
+    <br>
+    <h2>知っておくと良いこと</h2>
+    <li>文章中で特殊な文字を使用したいとき</li>
+    <table>
+        <tr>
+            <th>実際の記号</th>
+            <th>書くときのエスケープ表現</th>
+        </tr>
+        <tr>
+            <td>&lt;</td>
+            <td>&amp;lt;</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>&amp;gt;</td>
+        </tr>
+        <tr>
+            <td>&amp;</td>
+            <td>&amp;amp;</td>
+        </tr>
+    </table>
+    <br>
+    <li>タグにclassを定義する</li>
+    <p>タグにclass名を定義しておくと、CSSでデザインするときなどに便利!</p>
+    <br>
+
+    <h2>CSSの基本知識</h2>
+    <p>CSS（Cascading Style Sheets）は、HTMLで作った構造に「見た目のデザイン」を加えるための言語。</p>
+
+    <h3>🔶基本の書き方</h3>
+    <table>
+        <tr>
+            <th>書き方</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>セレクタ { プロパティ: 値; }</td>
+            <td>特定の要素にデザインを当てる基本構文</td>
+        </tr>
+        <tr>
+            <td>p { color: red; }</td>
+            <td>段落の文字色を赤にする</td>
+        </tr>
+    </table>
+    <br>
+
+    <h3>🔶よく使うプロパティ</h3>
+    <table>
+        <tr>
+            <th>プロパティ</th>
+            <th>意味</th>
+            <th>例</th>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>文字色</td>
+            <td>color: blue;</td>
+        </tr>
+        <tr>
+            <td>background-color</td>
+            <td>背景色</td>
+            <td>background-color: yellow;</td>
+        </tr>
+        <tr>
+            <td>font-size</td>
+            <td>文字の大きさ</td>
+            <td>font-size: 20px;</td>
+        </tr>
+        <tr>
+            <td>margin</td>
+            <td>外側の余白</td>
+            <td>margin: 10px;</td>
+        </tr>
+        <tr>
+            <td>padding</td>
+            <td>内側の余白</td>
+            <td>padding: 5px;</td>
+        </tr>
+        <tr>
+            <td>border</td>
+            <td>枠線</td>
+            <td>border: 1px solid black;</td>
+        </tr>
+    </table>
+    <br>
+    <div class="card">
+        <h2>margin（マージン）</h2>
+        <p>外側の余白。要素の外にどれだけスペースを取るかを指定する。</p>
+        <div class="example-box margin-example">このボックスは margin が 40px 設定されています。</div>
+    </div>
+    <br>
+    <div class="card">
+        <h2>padding（パディング）</h2>
+        <p>内側の余白。要素の内側にどれだけスペースを取るかを指定する。</p>
+        <div class="example-box padding-example">このボックスは padding が 24px 設定されています。</div>
+    </div>
+    <div class = "card">
+        <h4>CSSのコード例</h4>
+        <button class="copy-button">コピー</button>
+        <pre>
+            <code>
+                .example-box {
+                background-color: #f0f4f8;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                color :#333
+                }
+
+                /* marginの例 */
+                .margin-example {
+                margin: 40px;
+                }
+
+                /* paddingの例 */
+                .padding-example {
+                padding: 24px;
+                }
+            </code>
+        </pre>
+    </div>
+    <br>
+
+    
+    <h3>🔶CSSでのidセレクタ（#）の使い方</h3>
+    <p>
+        CSSでは、HTML要素に対してスタイルを指定するために「セレクタ」を使う。<br>
+        <strong><code>#</code>（シャープ記号）</strong>を使うと、<code>id</code>属性が特定の値を持つ要素にスタイルを適用できる。
+        class と違って、同じページに同じ id は基本的に1つだけ。
+    </p>
+
+    <div class = "card">
+    <h4>HTMLの例</h4>
+    <button class="copy-button">コピー</button>
+    <pre><code>&lt;p id="title"&gt;これは見出しです&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class = "card">
+    <h4>CSSの例</h4>
+    <button class = "copybutton">コピー</button>
+    <pre><code>#title {
+    color: blue;
+    font-size: 24px;
+    }</code></pre>
+    </div>
+
+  <p>上記のように、<code>id="title"</code> が付けられた段落は青色で大きな文字になる。</p>
+
+  <div id="title" style="color: blue; font-size: 24px; margin-top: 1em;">
+    （実際の表示例）これは見出しです
+  </div>
+
+  <br>
+
+    <h2>CSSの指定方法</h2>
+    <ul>
+        <li><strong>インラインCSS:</strong> HTMLタグ内で直接指定（例: <code>&lt;p style="color:red;"&gt;</code>）</li>
+        <li><strong>内部CSS:</strong> HTML内の <code>&lt;style&gt;</code> タグ内で記述</li>
+        <li><strong>外部CSS:</strong> CSSファイルを作って <code>&lt;link&gt;</code> タグで読み込む（おすすめ）</li>
+    </ul>
+    <br>
+
+        <h2>CSSをうまく使うコツ</h2>
+    <ul>
+        <li><strong>① まずは「見た目」より「整理」：</strong> はじめのうちは色やフォントを装飾する前に、余白（margin, padding）やレイアウトを整えるのが大事。</li>
+        <li><strong>② クラス（class）を活用する：</strong> 同じスタイルを複数の要素に当てたいときは、class属性を使って共通化すると管理しやすくなる。
+            <p>CSSのコード例のように、HTML側で指定したクラス（example-box, margin-example, padding-example ）をCSS側で指定することができる</p>
+        </li>
+        <li><strong>③ 小さく試して、ブラウザで確認：</strong> 一気に書かず、小さい変更をしてすぐ表示確認するとミスに気づきやすい。</li>
+        <li><strong>④ 開発者ツール（F12）を使おう：</strong> Chromeなどのブラウザには、スタイルをリアルタイムで確認できる「検証」機能がある。必須ツール！</li>
+    </ul>
+    <br>
+
+    <h2>ちょっと便利なプロパティ</h2>
+    <table>
+        <tr>
+            <th>プロパティ</th>
+            <th>意味</th>
+            <th>例</th>
+        </tr>
+        <tr>
+            <td>text-align</td>
+            <td>文字の配置（左・中央・右）</td>
+            <td>text-align: center;</td>
+        </tr>
+        <tr>
+            <td>display</td>
+            <td>要素の表示の仕方を変える</td>
+            <td>display: flex;</td>
+        </tr>
+        <tr>
+            <td>flexbox</td>
+            <td>並び方や中央揃えを簡単に制御できる</td>
+            <td>
+                <code>
+                    display: flex;<br>
+                    justify-content: center;<br>
+                    align-items: center;
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>hover</td>
+            <td>マウスを乗せたときのスタイル</td>
+            <td>
+                <code>
+                    a:hover {<br>
+                    &nbsp;&nbsp;color: red;<br>
+                    }
+                </code>
+            </td>
+        </tr>
+    </table><br>
+
+    <h2>CSSの <code>display</code> プロパティについて</h2>
+  <p>
+    <code>display</code> プロパティは、<strong>HTML要素の表示方法（レイアウト）</strong>を制御するために使用される。以下は代表的な値とその説明。
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>値</th>
+        <th>説明</th>
+        <th>例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>block</code></td>
+        <td>
+          要素はブロックレベルとして表示され、<strong>前後に改行</strong>が入る。
+        </td>
+        <td><code>&lt;div&gt;, &lt;p&gt;, &lt;section&gt;</code> など</td>
+      </tr>
+      <tr>
+        <td><code>inline</code></td>
+        <td>
+          要素はインライン要素として表示され、<strong>前後に改行されず横に並ぶ</strong>ようになる。
+        </td>
+        <td><code>&lt;span&gt;, &lt;a&gt;, &lt;strong&gt;</code> など</td>
+      </tr>
+      <tr>
+        <td><code>inline-block</code></td>
+        <td>
+          <code>inline</code> のように横に並びながらも、<strong>高さや幅の指定が可能</strong>になる。
+        </td>
+        <td>ナビゲーションボタンなどによく使われる</td>
+      </tr>
+      <tr>
+        <td><code>none</code></td>
+        <td>
+          要素は<strong>完全に非表示</strong>になる。画面にも現れず、レイアウトにも影響を与えない。
+        </td>
+        <td>モーダルの切り替えやメニューの開閉時など</td>
+      </tr>
+      <tr>
+        <td><code>flex</code></td>
+        <td>
+          フレックスボックスレイアウトを有効にする。<br>
+          子要素の<strong>配置や並びを柔軟に制御</strong>できる。
+        </td>
+        <td>レスポンシブデザインによく使われる</td>
+      </tr>
+      <tr>
+        <td><code>grid</code></td>
+        <td>
+          グリッドレイアウトを有効にする。<br>
+          <strong>2次元の行・列で要素を配置</strong>できる。
+        </td>
+        <td>ダッシュボードや複雑なレイアウトに適用</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <strong>注意：</strong> 要素によって初期の <code>display</code> 値は異なる。例えば <code>&lt;div&gt;</code> は <code>block</code>、<code>&lt;span&gt;</code> は <code>inline</code> 。
+  </p><br>
+
+    <h3>display プロパティの代表例</h3><br>
+
+    <h5>block（要素ごとに改行される）</h5>
+    <div class="container">
+        <div class="box block">Box 1</div>
+        <div class="box block">Box 2</div>
+        <div class="box block">Box 3</div>
+    </div><br>
+
+    <h5>inline（横に並ぶが幅や高さを指定できない）</h5>
+    <div class="container">
+        <span class="box inline">Box A</span>
+        <span class="box inline">Box B</span>
+        <span class="box inline">Box C</span>
+    </div><br>
+
+    <h5>inline-block（横に並びつつ幅や高さを指定できる）</h5>
+    <div class="container">
+        <div class="box inline-block">Box α</div>
+        <div class="box inline-block">Box β</div>
+        <div class="box inline-block">Box γ</div>
+    </div><br>
+
+    <h5>none（この行の Box は非表示です）</h5>
+    <div class="container">
+        <div class="box none">見えないBox</div>
+        <div class="box">表示されるBox</div>
+    </div><br>
+
+    <h5>flex（横並びで間隔も自在に制御）</h5>
+    <div class="container flex">
+        <div class="box">Flex 1</div>
+        <div class="box">Flex 2</div>
+        <div class="box">Flex 3</div>
+    </div><br>
+
+    <h5>grid（2列のグリッドで整列）</h5>
+    <div class="container grid">
+        <div class="box">Grid A</div>
+        <div class="box">Grid B</div>
+        <div class="box">Grid C</div>
+        <div class="box">Grid D</div>
+    </div>
+    <br>
+
+    <h2>CSSのおすすめ設計方法</h2>
+    <ul>
+        <li><strong>ファイルを分けて整理：</strong> CSSはHTMLから外部ファイルに切り出しておくと、あとから見直しやすくなる。</li>
+        <li><strong>コメントを使う：</strong> CSSにも <code>/* コメント */</code> で説明を入れられるので、区切りや意図を書いておくと未来の自分が助かる！</li>
+        <li><strong>最初はシンプルでOK：</strong> 複雑なアニメーションやグラデーションは慣れてから。まずは色・大きさ・余白で整えることに集中！</li>
+    </ul>
+    <br>
+
+    <div class="card">
+        <h2>まとめ</h2>
+        <ul>
+        <li>HTMLは「構造」を作る言語 → 見た目のデザインはCSS</li>
+        <li>タグごとに意味がある → どの場面で使うか理解しよう</li>
+        <li>よく使うタグを覚えればOK! → 実際に手を動かすのが一番</li>
+        <li>CSSで「見た目」を整えよう → まずは色や余白を変えてみるのがオススメ</li>
+        <li>外部CSSファイルを使えば、デザインの管理がしやすくなる</li>
+    </ul>
+    <p>
+        HTMLとCSSを組み合わせて、楽しく自分だけのページを作ってみよう!
+        <br>少しずつ試しながら、手を動かすことが上達のコツ。
+    </p>
+    </div>
+    
+    <div id="quiz-container">
+    <div id="start-screen">
+      <h2>HTMLとCSSに関する○✕クイズ（全20問）</h2>
+      <button class = "Quizebutton"onclick="startQuiz()">スタート</button>
+    </div>
+
+    <div id="question-screen" style="display:none;">
+      <div class="question" id="question-text"></div>
+      <div class="buttons">
+        <button onclick="answer(true)">○</button>
+        <button onclick="answer(false)">✕</button>
+      </div>
+      <div class="result" id="result-display"></div>
+      <div class="result-text" id="result-text"></div>
+      <div class="explanation" id="explanation-text"></div>
+      <button id="next-button" onclick="nextQuestion()">次の問題へ</button>
+    </div>
+
+    <div id="final-result"></div>
+  </div>
+
+    <script>
+        document.querySelectorAll('.copy-button').forEach(button => {
+        button.addEventListener('click', () => {
+        const code = button.nextElementSibling.textContent;
+        navigator.clipboard.writeText(code).then(() => {
+        button.textContent = 'コピー完了！';
+        setTimeout(() => {
+          button.textContent = 'コピー';
+        }, 2000);
+        });
+        });
+        });
+
+        const quiz = [
+      { q: "HTMLはプログラミング言語である。", a: false, e: "HTMLはマークアップ言語です。構造を記述するために使われます。" },
+      { q: "<head>タグはWebページの本文を表示する領域である。", a: false, e: "<head>はメタ情報を記述する場所で、本文は<body>内に書きます。" },
+      { q: "CSSはHTMLの構造を変える言語である。", a: false, e: "CSSは見た目（スタイル）を変更するための言語です。" },
+      { q: "<img>タグにはalt属性を付けることが推奨される。", a: true, e: "alt属性は画像が表示されないときの代替テキストを提供します。" },
+      { q: "CSSのセレクタで、#はidを指定する。", a: true, e: "#はid属性、.はclass属性に使います。" },
+      { q: "HTML5から<article>タグや<section>タグが追加された。", a: true, e: "HTML5では意味のあるタグが増えました。" },
+      { q: "display: none; は要素を見えなくするが、ページ上には存在する。", a: true, e: "視覚的には非表示でも、HTML構造には存在しています。" },
+      { q: "CSSのflexboxでは、横並びのレイアウトが簡単にできる。", a: true, e: "flexboxは要素の並びや配置を柔軟に制御できます。" },
+      { q: "HTMLコメントは <!-- --> で囲む。", a: true, e: "HTMLのコメント記法は <!-- コメント --> です。" },
+      { q: "CSSコメントは // コメント の形式で書く。", a: false, e: "CSSでは /* コメント */ で囲む形式です。" },
+      { q: "<a>タグのhref属性にはリンク先URLを指定する。", a: true, e: "hrefはリンク先を定義するための属性です。" },
+      { q: "<ol>は箇条書きリストである。", a: false, e: "<ol>は番号付きリストである。なお、箇条書きリストは<ul>である。" },
+      { q: "HTMLでフォームを作成するには<form>タグを使う。", a: true, e: "<form>タグはユーザー入力の送信を行うための要素です。" },
+      { q: "<div>は意味を持つコンテンツ要素である。", a: false, e: "<div>は汎用的なグループ化タグで意味は持ちません。" },
+      { q: "CSSのcolorは背景色を設定するプロパティである。", a: false, e: "colorは文字色、背景色はbackground-colorです。" },
+      { q: "<br>タグは段落を作る。", a: false, e: "<br>は改行、段落には<p>タグを使います。" },
+      { q: "class属性は複数の要素に同じスタイルを適用できる。", a: true, e: "classは複数要素に付けられ、再利用可能なスタイルを作れます。" },
+      { q: "CSSのmarginは要素の内側の余白を指定する。", a: false, e: "内側の余白はpadding、marginは外側の余白です。" },
+      { q: "HTMLのdoctype宣言は省略できる。", a: false, e: "<!DOCTYPE html>はHTML5の文書で必要な宣言です。" },
+      { q: "<strong>と<b>はまったく同じ意味を持つ。", a: false, e: "<strong>は強調の意味をもち、意味的にも重要です。" }
+    ];
+
+    let current = 0;
+    let correctCount = 0;
+
+    function startQuiz() {
+      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('question-screen').style.display = 'block';
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = quiz[current];
+      document.getElementById('question-text').textContent = `Q${current + 1}: ${q.q}`;
+      document.getElementById('result-display').style.display = 'none';
+      document.getElementById('result-text').style.display = 'none';
+      document.getElementById('explanation-text').style.display = 'none';
+      document.getElementById('next-button').style.display = 'none';
+      // ボタンのテキストを問題数に応じて切り替え
+        if (current === quiz.length - 1) {
+            document.getElementById('next-button').textContent = "結果を見る";
+        } else {
+            document.getElementById('next-button').textContent = "次の問題へ";
+        }
+    }
+
+    function answer(userAnswer) {
+      const q = quiz[current];
+      const result = document.getElementById('result-display');
+      const resultText = document.getElementById('result-text');
+      const explanation = document.getElementById('explanation-text');
+
+      if (userAnswer === q.a) {
+        result.textContent = '○';
+        result.style.color = 'limegreen';
+        resultText.textContent = '正解！';
+        correctCount++;
+      } else {
+        result.textContent = '✕';
+        result.style.color = 'red';
+        resultText.textContent = '不正解';
+      }
+
+      result.style.display = 'block';
+      resultText.style.display = 'block';
+      explanation.textContent = q.e;
+      explanation.style.display = 'block';
+      document.getElementById('next-button').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < quiz.length) {
+        showQuestion();
+      } else {
+        showFinalResult();
+      }
+    }
+
+    function showFinalResult() {
+      document.getElementById('question-screen').style.display = 'none';
+      const msg = correctCount >= 18 ? "さすがだね！すごい！" :
+                  correctCount >= 15 ? "かなりよく理解しています！" :
+                  correctCount >= 10 ? "まずまずの理解度です。" :
+                  "もう少し復習しましょう。";
+      document.getElementById('final-result').textContent = `あなたの正解数：${correctCount}/20\n${msg}`;
+    }
+    </script>
+
+</body>
+</html>
