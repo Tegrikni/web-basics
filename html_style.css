@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  max-width: 960px;      /* 最大幅を指定 */
+  margin: 0 auto;        /* 中央に配置 */
+  padding: 0 1rem;       /* 左右の余白を確保 */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  padding-left: 16x;
+  padding-right: 16px;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* セクション全体をカード風に */
+section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: #ffffff;          /* カードの背景 */
+  border: 1px solid #ddd;             /* 枠線 */
+  border-radius: 12px;                /* 角丸 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* 影で立体感 */
+  padding: 24px;                      /* 内側の余白 */
+  margin-bottom: 24px;                /* カード同士の間隔 */
+  transition: box-shadow 0.3s ease;   /* ホバー時のアニメーション */
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* ホバー時の影 */
+}
+
+.example-box {
+  background-color: #f0f4f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color :#333
+}
+
+/* marginの例 */
+.margin-example {
+  margin: 40px;
+}
+
+/* paddingの例 */
+.padding-example {
+  padding: 24px;
+}
+
+form {
+  margin: 0;
+}
+
+
+
+
+/* タイトル・見出し */
+h1, h2 {
+  color: #007acc;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 8px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* 段落 */
+p {
+  margin-bottom: 15px;
+}
+
+/* リスト */
+ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #007acc;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* アクセントボタン（任意） */
+.button {
+  display: inline-block;
+  background-color: #007acc;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #005fa3;
+}
+
+/* メディアクエリ：スマホ対応 */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  section {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
