@@ -113,7 +113,30 @@
         <br>こまでにHTMLやCSSを使ったことのない人向けなので、実際に手を動かしながらぜひ勉強に役立ててください！
         <br>ページの最後にはクイズも解いてみましょう！
     </p>
-    
+    <br>
+
+    <!-- 目次 -->
+<nav id="table-of-contents" style="margin-bottom: 2rem;">
+  <h2>目次</h2>
+  <ul>
+    <li><a href="#html-tags">よく使うHTMLタグとその役割</a></li>
+    <li><a href="#Emet-tags">Emet機能</a></li>
+    <li><a href="#form-tag">formタグとは？</a></li>
+    <li><a href="#tips">知っておくと良いこと</a></li>
+    <li><a href="#css-basics">CSSの基本知識</a></li>
+    <li><a href="#css-selectors">CSSの指定方法</a></li>
+    <li><a href="#css-tips">CSSをうまく使うコツ</a></li>
+    <li><a href="#useful-properties">ちょっと便利なプロパティ</a></li>
+    <li><a href="#display-property">CSSの display プロパティについて</a></li>
+    <li><a href="#css-design">CSSのおすすめ設計方法</a></li>
+    <li><a href="#summary">まとめ</a></li>
+    <li><a href="#quiz">クイズ</a></li>
+  </ul>
+</nav>
+
+
+
+    <section id="html-tags">
     <h2>よく使うHTMLタグとその役割</h2>
     <h3>🔷基本の構造</h3>
     <table>
@@ -152,7 +175,6 @@
             <td>実際に画面に表示する部分</td>
             <td>ページの中身を作る</td>
         </tr>
-        
     </table>
 
     
@@ -246,7 +268,7 @@
             </code>
         </pre>
     </div>
-    <p><a href="https://tegrikni.github.io/sample_heading/" target="_blank">見出しと段落の実例を見る</a></p>
+    <p><a href="sample_headings.html" target="_blank">見出しと段落の実例を見る</a></p>
     <br>
 
     <h3>🔷リスト(箇条書き)</h3>
@@ -303,7 +325,7 @@
             </code>
         </pre>
     </div>
-    <p><a href="https://tegrikni.github.io/Sample_lists/" target="_blank">リストの実例を見る</a></p>
+    <p><a href="sample_lists.html" target="_blank">リストの実例を見る</a></p>
     <br>
 
     <h3>🔷リンク・画像</h3>
@@ -408,7 +430,9 @@
     ※1　&lt;strong&gt;と&lt;b&gt;は画面上では同じ見た目だが、&lt;strong&gt;はスクリーンリーダーなどの支援技術に対して音声に抑揚や協調を付けるときがある。
     <br>
     <br>
+    </section>
 
+    <section id="Emet-tags">
     <h2>Emet機能</h2>
     <p>Emmet（エメット） は、HTMLやCSSを素早く書くための補完機能のことである。
         <br>ここでは、Emmetの使い方を紹介する。
@@ -452,7 +476,9 @@
         </table>
     </ul>
     <br>
+    </section>
     
+    <section id="form-tag">
     <h2>&lt;form&gt;タグとは？</h2>
     <p>
         <code>&lt;form&gt;</code> タグは、ユーザーからの入力（名前・メール・アンケートなど）を受け取ってサーバーに送信するためのHTML要素。
@@ -481,10 +507,11 @@
     <li><code>method</code> は送信方法。通常は <code>get</code> か <code>post</code>。</li>
     <li><code>label</code> を使うとアクセシビリティが向上する。</li>
     <li>ボタンは <code>&lt;button type="submit"&gt;</code> または <code>&lt;input type="submit"&gt;</code>。</li>
-  </ul>
-
-
+    </ul>
     <br>
+    </section>
+
+    <section id="tips">
     <h2>知っておくと良いこと</h2>
     <li>文章中で特殊な文字を使用したいとき</li>
     <table>
@@ -509,7 +536,9 @@
     <li>タグにclassを定義する</li>
     <p>タグにclass名を定義しておくと、CSSでデザインするときなどに便利!</p>
     <br>
+    </section>
 
+    <section id="css-basics">
     <h2>CSSの基本知識</h2>
     <p>CSS（Cascading Style Sheets）は、HTMLで作った構造に「見た目のデザイン」を加えるための言語。</p>
 
@@ -634,9 +663,10 @@
   <div id="title" style="color: blue; font-size: 24px; margin-top: 1em;">
     （実際の表示例）これは見出しです
   </div>
-
   <br>
+  </section>
 
+    <section id="css-selectors">
     <h2>CSSの指定方法</h2>
     <ul>
         <li><strong>インラインCSS:</strong> HTMLタグ内で直接指定（例: <code>&lt;p style="color:red;"&gt;</code>）</li>
@@ -644,8 +674,10 @@
         <li><strong>外部CSS:</strong> CSSファイルを作って <code>&lt;link&gt;</code> タグで読み込む（おすすめ）</li>
     </ul>
     <br>
+    </section>
 
-        <h2>CSSをうまく使うコツ</h2>
+    <section id="css-tips">
+    <h2>CSSをうまく使うコツ</h2>
     <ul>
         <li><strong>① まずは「見た目」より「整理」：</strong> はじめのうちは色やフォントを装飾する前に、余白（margin, padding）やレイアウトを整えるのが大事。</li>
         <li><strong>② クラス（class）を活用する：</strong> 同じスタイルを複数の要素に当てたいときは、class属性を使って共通化すると管理しやすくなる。
@@ -655,7 +687,9 @@
         <li><strong>④ 開発者ツール（F12）を使おう：</strong> Chromeなどのブラウザには、スタイルをリアルタイムで確認できる「検証」機能がある。必須ツール！</li>
     </ul>
     <br>
+    </section>
 
+    <section id="useful-properties">
     <h2>ちょっと便利なプロパティ</h2>
     <table>
         <tr>
@@ -696,8 +730,10 @@
             </td>
         </tr>
     </table><br>
+    </section>
 
-    <h2>CSSの <code>display</code> プロパティについて</h2>
+  <section id="display-property">  
+  <h2>CSSの <code>display</code> プロパティについて</h2>
   <p>
     <code>display</code> プロパティは、<strong>HTML要素の表示方法（レイアウト）</strong>を制御するために使用される。以下は代表的な値とその説明。
   </p>
@@ -806,7 +842,9 @@
         <div class="box">Grid D</div>
     </div>
     <br>
+    </section>
 
+    <section id="css-design">
     <h2>CSSのおすすめ設計方法</h2>
     <ul>
         <li><strong>ファイルを分けて整理：</strong> CSSはHTMLから外部ファイルに切り出しておくと、あとから見直しやすくなる。</li>
@@ -814,7 +852,9 @@
         <li><strong>最初はシンプルでOK：</strong> 複雑なアニメーションやグラデーションは慣れてから。まずは色・大きさ・余白で整えることに集中！</li>
     </ul>
     <br>
+    </section>
 
+    <section id="summary">
     <div class="card">
         <h2>まとめ</h2>
         <ul>
@@ -829,17 +869,19 @@
         <br>少しずつ試しながら、手を動かすことが上達のコツ。
     </p>
     </div>
-    
+    </section>
+
+    <section id="quiz">
     <div id="quiz-container">
     <div id="start-screen">
-      <h2>HTMLとCSSに関する○✕クイズ（全20問）</h2>
+      <h2>HTMLとCSSに関する〇✕クイズ（全20問）</h2>
       <button class = "Quizebutton"onclick="startQuiz()">スタート</button>
     </div>
 
     <div id="question-screen" style="display:none;">
       <div class="question" id="question-text"></div>
       <div class="buttons">
-        <button onclick="answer(true)">○</button>
+        <button onclick="answer(true)">〇</button>
         <button onclick="answer(false)">✕</button>
       </div>
       <div class="result" id="result-display"></div>
@@ -848,8 +890,11 @@
       <button id="next-button" onclick="nextQuestion()">次の問題へ</button>
     </div>
 
-    <div id="final-result"></div>
+    
+  <div id="final-result"></div>
   </div>
+  </section>
+
 
     <script>
         document.querySelectorAll('.copy-button').forEach(button => {
@@ -918,7 +963,7 @@
       const explanation = document.getElementById('explanation-text');
 
       if (userAnswer === q.a) {
-        result.textContent = '○';
+        result.textContent = '〇';
         result.style.color = 'limegreen';
         resultText.textContent = '正解！';
         correctCount++;
@@ -944,6 +989,10 @@
       }
     }
 
+    const startScreen = document.getElementById("start-screen");
+    const quizContainer = document.getElementById("quiz-container");
+    const resultScreen = document.getElementById("result-screen");
+
     function showFinalResult() {
       document.getElementById('question-screen').style.display = 'none';
       const msg = correctCount >= 18 ? "さすがだね！すごい！" :
@@ -951,7 +1000,10 @@
                   correctCount >= 10 ? "まずまずの理解度です。" :
                   "もう少し復習しましょう。";
       document.getElementById('final-result').textContent = `あなたの正解数：${correctCount}/20\n${msg}`;
+      
     }
+
+    
     </script>
 
 </body>
