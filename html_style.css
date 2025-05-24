@@ -3,17 +3,19 @@
 
 * {
   box-sizing: border-box;
-  max-width: 960px;      /* 最大幅を指定 */
-  margin: 0 auto;        /* 中央に配置 */
-  padding: 0 1rem;       /* 左右の余白を確保 */
+       /* 最大幅を指定 */
+         /* 中央に配置 */
+  
 }
 
 body {
+  max-width: 960px; 
   font-family: 'Roboto', sans-serif;
   background-color: #f4f6f8;
   color: #333;
   line-height: 1.6;
   font-size: 16px;
+  margin: 0 auto; 
   padding-left: 16x;
   padding-right: 16px;
 }
@@ -157,10 +159,8 @@ tr:nth-child(even) {
 /* メディアクエリ：スマホ対応 */
 @media screen and (max-width: 600px) {
   body {
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 16px;
-    margin: 0;
-    padding: 0　1rem;
   }
 
   h1, h2, h3 {
