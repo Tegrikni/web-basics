@@ -159,6 +159,8 @@ tr:nth-child(even) {
   body {
     padding: 1rem;
     font-size: 16px;
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3 {
